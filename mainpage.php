@@ -9,7 +9,7 @@
         <tr>
             <td style="width: 50%;">
                 <a href="admin_login.php"><img src="images/admin.png" alt="admin_login"></a><br><br>
-                <a href="customer_mainpage.php"><img src="images/customer.png" alt="customer-mainpage"></a><br><br>
+                <a href="customeracdetlist.php"><img src="images/customer.png" alt="customer-mainpage"></a><br><br>
                 <a href="index.php"><img src="images/home.png" alt="home-page"></a><br><br>
             </td>
             <td style="width: 50%;">
