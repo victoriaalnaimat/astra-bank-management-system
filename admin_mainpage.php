@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="eng">
-    <head>
-        <title>Astra Bank</title>
-    </head>
-    <body style="background-color: lightblue;">
-        <img src="images/head1.png" alt="head 1"><br><br>
-        <table style="width: 100%;">
-        <tr>
-            <td style="width: 50%;">
-                <a href="admin_login.php"><img src="images/admin.png" alt="admin_login"></a><br><br>
-                <a href="customer_mainpage.php"><img src="images/customer.png" alt="customer-mainpage"></a><br><br>
-                <a href="index.php"><img src="images/home.png" alt="home-page"></a><br><br>
-            </td>
-            <td style="width: 50%;">
-                <img src="images/pic1.png" alt="pic1" style="width: 100%;">
-            </td>
-        </tr>
-        </table>
-        <br><br><br><br>
-        <img src="images/head2.png" alt="head 2">
-    </body>
+<head>
+    <title>Astra Bank</title>
+</head>
+<style>
+    table {font-size: 30px};
+</style>
+<body style="background-color: lightblue;">
+    <img src="images/head1.png" alt="head 1"><br><br>
+    <table width=40% align=center border=1 bgcolor=lightpink>
+        <tr><td>Account Details Entry</td></tr>
+        <tr><td>Account Details List</td></tr>
+        <tr><td>Customer Account Approval</td></tr>
+        <tr><td>Customer Account List</td></tr>
+        <tr><td>Deposit Entry</td></tr>
+        <tr><td>Transfer List</td></tr>
+        <tr><td>Logout</td></tr>
+    </table>
+    <br><br><br><br>
+    <img src="images/head2.png" alt="head 2">
+</body>
 </html>
