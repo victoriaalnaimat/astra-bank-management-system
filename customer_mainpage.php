@@ -13,7 +13,7 @@
         <tr><td><a href="customer_account_details.php">Account Details</a></td></tr>
         <tr><td><a href="cutomer_balance.php">Check Balance</a></td></tr>
         <tr><td><a href="cutomer_transfer.php">Transfer Money</a></td></tr>
-        <tr><td><a href="customeracdetlist.php">Transaction List</a></td></tr>
+        <tr><td><a href="customer_transactions_list.php">Transaction List (History)</a></td></tr>
         <tr><td><a href="index.php">Logout</a></td></tr>
     </table>
     <br><br><br><br>

@@ -44,7 +44,7 @@
                             <td><input type=password name=text2></td>
                         </tr>
                         <tr>
-                            <td></td>
+                        <td><a href="mainpage.php">Back</a></td>
                             <td><input type=submit name=Login style="height: 45px; width: 150px;"></td>
                         </tr>
                     </table>

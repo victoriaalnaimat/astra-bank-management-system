@@ -17,9 +17,9 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //echo ("working");
         $v1=$_POST['text1'];
-        $v2=$_POST['text2'];
+        $v6=$_POST['text6'];
         //echo $v1." ".$v2;
-        $sqlvar="select * from CustAcTab where acno=$v1 and pword='$v2' and custapp='Y'";
+        $sqlvar = "SELECT * FROM CustAcTab WHERE acno = $v1 AND pword = '$v6' AND custapp = 'Y'";
         $result=$conn ->query($sqlvar);
         if ($result ->num_rows > 0) {
             $_SESSION['acno'] =$v1;
@@ -39,14 +39,14 @@
                         </tr>
                         <tr>
                             <td>Account No.</td>
-                            <td><input type=text name=text1></td>
+                            <td><input type="text" name="text1" maxlength="10"></td>
                         </tr>
                         <tr>
                             <td>Password</td>
-                            <td><input type=password name=text2></td>
+                            <td><input type=password name=text6></td>
                         </tr>
                         <tr>
-                            <td></td>
+                        <td><a href="customeracdetlist.php">Back</a></td>
                             <td><input type=submit name=Login style="height: 45px; width: 150px;"></td>
                         </tr>
                     </table>

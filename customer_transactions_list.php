@@ -5,10 +5,10 @@
     <title>Astra Bank</title>
 </head>
 
-<body style="background-color: lightblue;">
+<body style="background-color: lightgray;">
     <img src="images/head1.png" alt="head 1"><br><br>
     <table align=center border=1 width=80% cellpadding=5 cellspacing=5>
-        <tr><td colspan=6 align=center>Customer Transactions List</td></tr>
+        <tr><td colspan=6 align=center>Customer Transactions List (History)</td></tr>
         <tr><td>Transaction No.</td><td>Date</td><td>Account No.</td><td>Depated Amount</td><td>Credited Amount</td><td>Details</td></tr>
     <?php
     error_reporting(E_ALL);
@@ -26,7 +26,7 @@
     }
     ?>
     </table>
-    <a href="admin_mainpage.php">Back</a>
+    <a href="customer_mainpage.php">Back</a>
     <table width=100%>
         <tr height=200>
             <td></td>

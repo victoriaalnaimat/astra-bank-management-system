@@ -5,7 +5,7 @@
     <title>Astra Bank</title>
 </head>
 
-<body style="background-color: lightblue;">
+<body style="background-color: lightgray;">
     <img src="images/head1.png" alt="head 1"><br><br>
     <table align=center border=1 width=80% cellpadding=5 cellspacing=5>
     <tr>
@@ -24,7 +24,7 @@
     $sqlvar = "select (sum(dbAmt) - sum(ctAmt)) as Balance from tranTab where acno=$v1";
     $result = $conn->query($sqlvar);
     while ($row = $result->fetch_row()) {
-        echo("<tr><td>Balance Amount</td><td>".$row[0]."</td></tr>");
+        echo("<tr><td>Balance Amount</td><td>".$row[0]." JD</td></tr>");
     }
     ?>
     </table>

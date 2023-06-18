@@ -8,19 +8,27 @@
 <body style="background-color: lightblue;">
     <img src="images/head1.png" alt="head 1"><br><br>
     <table align=center border=1 width=80% cellpadding=5 cellspacing=5>
-        <tr><td>Acount Name</td><td>Details</td><td>Facilities</td><td>Minimum Balance</td></tr>
-    <?php
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
+        <tr>
+            <td colspan=4 align=center>All Bank Account Types List</td>
+        </tr>
+        <tr>
+            <td>Account Type</td>
+            <td>Details</td>
+            <td>Facilities</td>
+            <td>Minimum Balance</td>
+        </tr>
+        <?php
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
 
-    include("connfile.php");
+        include("connfile.php");
 
-    $sqlvar = "select * from actypeTab order by actypename";
-    $result = $conn->query($sqlvar);
-    while ($row = $result->fetch_row()) {
-        echo("<tr><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[2]."</td><td>".$row[3]."</td></tr>");
-    }
-    ?>
+        $sqlvar = "select * from actypeTab order by actypename";
+        $result = $conn->query($sqlvar);
+        while ($row = $result->fetch_row()) {
+            echo ("<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td></tr>");
+        }
+        ?>
     </table>
     <a href="admin_mainpage.php">Back</a>
     <table width=100%>

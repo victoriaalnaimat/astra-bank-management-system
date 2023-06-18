@@ -33,10 +33,10 @@
     <form name=form1 method="post" action="adminacdet.php">
         <table width=80% border=1 cellspacing=5 cellpadding=5 align=center>
             <tr>
-                <td colspan=2>Account Type Details Entry</td>
+                <td colspan=2>Banking Account Types Entry</td>
             </tr>
             <tr>
-                <td>Account Name</td>
+                <td>Account Name (Type)</td>
                 <td><input type=text name=text1></td>
             </tr>
             <tr>
