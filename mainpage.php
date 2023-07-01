@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>Astra Bank</title>
-  <link rel="stylesheet" href="styles-mainpage.css">
+  <link rel="stylesheet" href="styles/styles-mainpage.css">
   <script src="script.js" defer></script>
 </head>
 <body>

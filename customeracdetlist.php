@@ -3,7 +3,7 @@
 
 <head>
   <title>Astra Bank</title>
-  <link rel="stylesheet" href="styles-Customer-Login-and-Signup-Page.css">
+  <link rel="stylesheet" href="styles/styles-Customer-Login-and-Signup-Page.css">
   <script src="script.js" defer></script>
 </head>
 
