@@ -66,48 +66,15 @@
       <div class="text col-lg-6 col-md-6 col-12 pt-5 pb-5">
         <h6>ASTRA BANK</h6>
         <h2>Unlimited Transaction with zero fees</h2>
-        <p style="color: azure;">
-        <p style="color: white;">
-          <?php
-          $fullText = "This feature allows customers to initiate fund transfers between their accounts or to other beneficiaries.
-  A business or current account with features like a cheque book and overdraft facility. The minimum balance required is 5000.";
-
-          $maxLength = 117; // Maximum number of characters to display initially
-
-          if (strlen($fullText) > $maxLength) {
-            $shortText = substr($fullText, 0, $maxLength); // Get the first part of the text
-            $remainingText = substr($fullText, $maxLength); // Get the remaining part of the text
-            echo '<div id="textContainer">' . $shortText . '<span id="remainingText" style="display: none;">' . $remainingText . '</span>'; // Display the short text within a container
-            echo '<button onclick="toggleText(this)" style="background-color: #cc0ca2;border-radius: 20px; padding: 9px 14px; border: none; margin-top: 10px;font-weight: bolder; color: white;">Learn More</button></div>'; // Add a "Read More" button at the end of the container with custom styles
-            echo '<script>
-      function toggleText(button) {
-        var textContainer = document.getElementById("textContainer");
-        var remainingText = document.getElementById("remainingText");
-
-        if (remainingText.style.display === "none") {
-          remainingText.style.display = "inline";
-          button.innerHTML = "Show Less";
-          button.style.backgroundColor = "white";
-          button.style.color = "white";
-          window.scrollTo(0, textContainer.offsetTop + textContainer.offsetHeight);
-        } else {
-          remainingText.style.display = "none";
-          button.innerHTML = "Learn More";
-          button.style.backgroundColor = "#cc0ca2";
-          button.style.color = "white";
-        }
-      }
-    </script>'; // JavaScript code to toggle the text and scroll
-          } else {
-            echo $fullText; // Display the full text if it's shorter than the maximum length
-          }
-          ?>
+        <p>
+          This feature allows customers to initiate fund transfers between their accounts or to other beneficiaries.
+          A business or current account with features like a cheque book and overdraft facility. The minimum balance required is 5000.
         </p>
-
+        <a href="customeracdetlist.php">Learn More</a>
       </div>
       <!-- Right Side Image Area  -->
       <div class="img col-lg-6 col-md-6 col-12 pt-5 pb-5">
-        <img class="img-fluid" src="AstraBank_Victoria/assets/images/1.svg" />
+        <img class="img-fluid" src="AstraBank_Victoria/assets/images/1.svg" alt="" />
       </div>
     </div>
   </section>
@@ -125,41 +92,41 @@
         <h2>Login to your account at any time</h2>
         <p>
           <?php
-          $fullText = "This feature allows customers to initiate fund transfers between their accounts or to other beneficiaries. A business or current account with features like a cheque book and overdraft facility. The minimum balance required is 5000.";
+          $fullText = "Allows customers to create an account or log in to their existing accounts. The signup process offers different account types with various details and facilities , Such As:
+* Current Account: A business current account with features like a cheque book and overdraft facility. The minimum balance required is 5000.
+* Fixed Deposit: A term deposit with a fixed interest rate. This account does not allow withdrawal before maturity. The minimum balance required is 10000.
+* Savings Account: A standard savings account that provides an ATM card and online banking services. The minimum balance required is 1000.";
 
-          $maxLength = 117; // Maximum number of characters to display initially
+          $maxLength = 162; // Maximum number of characters to display initially
 
           if (strlen($fullText) > $maxLength) {
             $shortText = substr($fullText, 0, $maxLength); // Get the first part of the text
             $remainingText = substr($fullText, $maxLength); // Get the remaining part of the text
             echo '<div id="textContainer">' . $shortText . '<span id="remainingText" style="display: none;">' . $remainingText . '</span>'; // Display the short text within a container
-            echo '<button onclick="toggleText(this)" style="background-color: #cc0ca2; border-radius: 20px; padding: 9px 14px; border: none; margin-top: 10px; font-weight: bolder; color: white;">Learn More</button></div>'; // Add a "Read More" button at the end of the container with custom styles
+            echo '<button onclick="toggleText(this)" style="background-color: #cc0ca2; color: white; border-radius: 10px; padding: 5px 10px; border: none; margin-top: 10px;">Read More</button></div>'; // Add a "Read More" button at the end of the container with custom styles
             echo '<script>
-      function toggleText(button) {
-        var textContainer = document.getElementById("textContainer");
-        var remainingText = document.getElementById("remainingText");
-
-        if (remainingText.style.display === "none") {
-          remainingText.style.display = "inline";
-          button.innerHTML = "Show Less";
-          button.style.backgroundColor = "white";
-          button.style.color = "black";
-          window.scrollTo(0, textContainer.offsetTop + textContainer.offsetHeight);
-        } else {
-          remainingText.style.display = "none";
-          button.innerHTML = "Learn More";
-          button.style.backgroundColor = "#cc0ca2";
-          button.style.color = "white";
-        }
-      }
-    </script>'; // JavaScript code to toggle the text and scroll
+            function toggleText(button) {
+                var textContainer = document.getElementById("textContainer");
+                var remainingText = document.getElementById("remainingText");
+                
+                if (remainingText.style.display === "none") {
+                    remainingText.style.display = "inline";
+                    button.innerHTML = "Show Less";
+                    button.style.backgroundColor = "black";
+                    window.scrollTo(0, textContainer.offsetTop + textContainer.offsetHeight);
+                } else {
+                    remainingText.style.display = "none";
+                    button.innerHTML = "Read More";
+                    button.style.backgroundColor = "#cc0ca2";
+                }
+            }
+          </script>'; // JavaScript code to toggle the text and scroll
           } else {
-            echo '<span style="color: white;">' . $fullText . '</span>'; // Display the full text in white color if it's shorter than the maximum length
+            echo $fullText; // Display the full text if it's shorter than the maximum length
           }
           ?>
-        </p>
 
-        <br>
+        </p><br>
         <a href="#">Join Astra Bank Family Now ... !</a>
       </div>
     </div>
@@ -178,7 +145,7 @@
           <img class="img-fluid w-75" src="AstraBank_Victoria/assets/images/1.svg" />
           <h5 class="fw-bold pt-4">Reduce Expenses</h5>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Improving overall financial performance and customer satisfaction.
           </p>
         </div>
         <!-- Second Card  -->
@@ -186,8 +153,7 @@
           <img class="img-fluid w-75" src="AstraBank_Victoria/assets/images/2.png" />
           <h5 class="fw-bold pt-4">Virtual procedurs</h5>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Aspernatur, at exercitationem beatae hic doloremque ea.
+            Allow customers to perform various banking tasks without visiting a physical branch. These procedures leverage technology to provide convenient and accessible banking services.
           </p>
         </div>
         <!-- Third Card  -->
@@ -195,8 +161,7 @@
           <img class="img-fluid w-75" src="AstraBank_Victoria/assets/images/3.png" />
           <h5 class="fw-bold pt-4">Managing your Account Financial Status</h5>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Aspernatur, at exercitationem beatae hic doloremque ea.
+            Providing a summary of your account's financial status and allows you to track and manage your finances effectively. It offers features and information related to your account balance, transactions, and financial activities.
           </p>
         </div>
       </div>
@@ -211,11 +176,9 @@
         <h6>Wanna be a part of our Astra Bank family?<br>Come and join us !</h6>
         <h2>Creating an account is extremely easy</h2>
         <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum
-          consequatur non delectus ad quasi. Consectetur necessitatibus alias
-          eveniet corporis hic, expedita dolore quo eos tempore!
+        Creating an account on the Astra Bank website is a simple and straightforward process. Customers can easily sign up for an account by providing the required information. The website offers different account types to choose from, each with its own unique features and facilities.
         </p>
-        <a href="#" style="background-color: #cc0ca2;">Start Now</a>
+        <a href="#" style="background-color: #cc0ca2;">What are you waiting for? Start Now! (^o^)</a>
       </div>
       <!-- Right Side Image Area  -->
       <div class="img col-lg-6 col-md-6 col-12 pt-5 pb-5">
