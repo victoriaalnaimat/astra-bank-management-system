@@ -2,12 +2,33 @@
 <html lang="eng">
 
 <head>
-    <title>Astra Bank</title>
+  <title>Astra Bank</title>
+  <link rel="stylesheet" href="styles-Customer-Signup.css">
+  <script src="script.js" defer></script>
 </head>
 
-<body style="background-color: lightgray;">
-    <img src="images/head1.png" alt="head 1"><br><br>
-    <?php
+<body>
+  <header>
+    <div class="header-container">
+      <img src="logo.png" alt="Astra Bank Logo" class="logo">
+      <nav>
+        <div class="burger-menu">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </nav>
+    </div>
+    <div class="responsive-menu">
+      <ul class="nav-links">
+        <li><a href="admin_login.php">Admin Login</a></li>
+        <li><a href="customeracdetlist.php">Customer Login</a></li>
+        <li><a href="index.php">Back to Home-Page</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <?php
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
 
@@ -39,8 +60,9 @@
         $_SESSION['actype']=$_GET['actype'];
     }
     ?>
-    <form name=form1 method="post" action="customer_signup.php">
-        <table width=80% border=1 cellspacing=5 cellpadding=5 align=center>
+
+  <form name=form1 method="post" action="customer_signup.php">
+  <table width=80% border=1 cellspacing=5 cellpadding=5 align=center>
             <tr>
                 <td colspan=2>customer Signup</td>
             </tr>
@@ -80,13 +102,17 @@
                 <td colspan=2><?php echo $resulttt; ?></td>
             </tr>
         </table>
-    </form>
-    <table width=100%>
-        <tr height=200>
-            <td></td>
-        </tr>
-    </table>
-    <img src="images/head2.png" alt="head 2">
+  </form>
+
+  <table width=100%>
+    <tr height=200>
+      <td></td>
+    </tr>
+  </table>
+
+  <footer>
+    <p>&copy; 2023 Astra Bank. All rights reserved.</p>
+  </footer>
 </body>
 
 </html>

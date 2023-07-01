@@ -1,23 +1,43 @@
 <!DOCTYPE html>
-<html lang="eng">
-    <head>
-        <title>Astra Bank</title>
-    </head>
-    <body style="background-color: lightblue;">
-        <img src="images/head1.png" alt="head 1"><br><br>
-        <table style="width: 100%;">
-        <tr>
-            <td style="width: 50%;">
-                <a href="admin_login.php"><img src="images/admin.png" alt="admin_login"></a><br><br>
-                <a href="customeracdetlist.php"><img src="images/customer.png" alt="customer-mainpage"></a><br><br>
-                <a href="index.php"><img src="images/home.png" alt="home-page"></a><br><br>
-            </td>
-            <td style="width: 50%;">
-                <img src="images/pic1.png" alt="pic1" style="width: 100%;">
-            </td>
-        </tr>
-        </table>
-        <br><br><br><br>
-        <img src="images/head2.png" alt="head 2">
-    </body>
+<html lang="en">
+<head>
+  <title>Astra Bank</title>
+  <link rel="stylesheet" href="styles-mainpage.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <img src="logo.png" alt="Astra Bank Logo" class="logo">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="admin_login.php">Admin Login</a></li>
+          <li><a href="customeracdetlist.php">Customer Login</a></li>
+          <li><a href="index.php">Back to Home-Page</a></li>
+        </ul>
+        <div class="burger-menu">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </nav>
+    </div>
+    <div class="responsive-menu">
+      <ul class="nav-links">
+        <li><a href="admin_login.php">Admin Login</a></li>
+        <li><a href="customeracdetlist.php">Customer Login</a></li>
+        <li><a href="index.php">Back to Home-Page</a></li>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <h1>Welcome to Astra Bank</h1>
+      <p>Experience the future of banking</p>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2023 Astra Bank. All rights reserved.</p>
+  </footer>
+</body>
 </html>

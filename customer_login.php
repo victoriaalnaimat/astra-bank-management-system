@@ -1,13 +1,40 @@
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="en">
 
 <head>
-    <title>Astra Bank</title>
+  <title>Astra Bank</title>
+  <link rel="stylesheet" href="styles-customer-login.css">
+  <script src="script.js" defer></script>
 </head>
 
-<body style="background-color: lightgray;">
-    <img src="images/head1.png" alt="head 1"><br><br>
-    <?php
+<body>
+  <header>
+    <div class="header-container">
+      <img src="logo.png" alt="Astra Bank Logo" class="logo">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="admin_login.php">Admin Login</a></li>
+          <li><a href="customeracdetlist.php">Customer Login</a></li>
+          <li><a href="index.php">Back to Home-Page</a></li>
+        </ul>
+        <div class="burger-menu">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </nav>
+    </div>
+    <div class="responsive-menu">
+      <ul class="nav-links">
+        <li><a href="admin_login.php">Admin Login</a></li>
+        <li><a href="customeracdetlist.php">Customer Login</a></li>
+        <li><a href="index.php">Back to Home-Page</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+  <?php
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
     
@@ -29,40 +56,28 @@
         }
     }
     ?>
-    <form name=form1 method="post" action="customer_login.php">
-        <table width=100% align=left>
-            <tr>
-                <td style="width: 50%;">
-                    <table width=80% border=1 cellspacing=5 cellpadding=5>
-                        <tr>
-                            <td colspan=2>Customer Login</td>
-                        </tr>
-                        <tr>
-                            <td>Account No.</td>
-                            <td><input type="text" name="text1" maxlength="10"></td>
-                        </tr>
-                        <tr>
-                            <td>Password</td>
-                            <td><input type=password name=text6></td>
-                        </tr>
-                        <tr>
-                        <td><a href="customeracdetlist.php">Back</a></td>
-                            <td><input type=submit name=Login style="height: 45px; width: 150px;"></td>
-                        </tr>
-                    </table>
-                </td>
-                <td width=50%>
-                    <img src="images/pic1.png" alt="pic1" style="width: 100%;">
-                </td>
-            </tr>
-        </table>
+    <form name="form1" method="post" action="customer_login.php">
+      <div class="form-container">
+        <h2>Customer Login</h2>
+        <div class="form-group">
+          <label for="account">Account No.</label>
+          <input type="text" name="text1" id="account" maxlength="10">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="text6" id="password">
+        </div>
+        <div class="form-actions">
+          <a href="customeracdetlist.php">Back</a>
+          <input type="submit" name="Login" value="Login">
+        </div>
+      </div>
     </form>
-    <table width=100%>
-        <tr height=200>
-            <td></td>
-        </tr>
-    </table>
-    <img src="images/head2.png" alt="head 2">
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Astra Bank. All rights reserved.</p>
+  </footer>
 </body>
 
 </html>
