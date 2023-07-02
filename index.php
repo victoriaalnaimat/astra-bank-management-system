@@ -176,7 +176,7 @@
         <h6>Wanna be a part of our Astra Bank family?<br>Come and join us !</h6>
         <h2>Creating an account is extremely easy</h2>
         <p>
-        Creating an account on the Astra Bank website is a simple and straightforward process. Customers can easily sign up for an account by providing the required information. The website offers different account types to choose from, each with its own unique features and facilities.
+          Creating an account on the Astra Bank website is a simple and straightforward process. Customers can easily sign up for an account by providing the required information. The website offers different account types to choose from, each with its own unique features and facilities.
         </p>
         <a href="#" style="background-color: #cc0ca2;">What are you waiting for? Start Now! (^o^)</a>
       </div>
