@@ -13,7 +13,7 @@
 
     include("connfile.php");
     session_start();
-    $resulttt="";
+    $resulttt = "";
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //echo ("working");
         $v1 = $_POST['text1'];
@@ -24,9 +24,9 @@
         $sqlvar = "insert into actypeTab values('$v1','$v2','$v3','$v4')";
         $result = $conn->query($sqlvar);
         if ($result) {
-            $resulttt="Record Inserted";
+            $resulttt = "Record Inserted";
         } else {
-            $resulttt="Record Not Inserted, seems that there's a problem !";
+            $resulttt = "Record Not Inserted, seems that there's a problem !";
         }
     }
     ?>

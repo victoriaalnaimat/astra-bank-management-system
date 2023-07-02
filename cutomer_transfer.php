@@ -7,14 +7,14 @@
 
 <body style="background-color: lightgray;">
     <img src="images/head1.png" alt="head 1"><br><br>
-    
+
     <?php
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
 
     include("connfile.php");
     session_start();
-    $resulttt="";
+    $resulttt = "";
     //echo(date('Y/m/d'));
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -24,13 +24,15 @@
         $v3 = $_POST['text3'];
         //echo $v1." ".$v2;
 
-        $nvar=1001;
+        $nvar = 1001;
         $sqlvar = "select max(tranNo) +1 from tranTab";
         $result = $conn->query($sqlvar);
-        if ($row=$result->fetch_row()) {
-            $nvar=$row[0];
+        if ($row = $result->fetch_row()) {
+            $nvar = $row[0];
         }
-        if ($nvar===null){$nvar=1001;}
+        if ($nvar === null) {
+            $nvar = 1001;
+        }
         //echo($nvar);
         $date_1 = date('Y/m/d H:i:s');
 
@@ -39,9 +41,9 @@
         //echo ($sqlvar);
         $result = $conn->query($sqlvar);
         if ($result) {
-            $resulttt="Record Inserted";
+            $resulttt = "Record Inserted";
         } else {
-            $resulttt="Record Not Inserted, seems that there's a problem !";
+            $resulttt = "Record Not Inserted, seems that there's a problem !";
         }
     }
     ?>
