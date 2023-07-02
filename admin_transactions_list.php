@@ -18,7 +18,7 @@
 
     session_start();
     $v1=$_SESSION['acno'];
-    $sqlvar = "select * from TranTab where acno=$v1 order by tranNo desc";
+    $sqlvar = "select * from TranTab order by tranNo desc";
     //tranNo desc means arranging transaction numbers descending (from last to first)
     $result = $conn->query($sqlvar);
     while ($row = $result->fetch_row()) {

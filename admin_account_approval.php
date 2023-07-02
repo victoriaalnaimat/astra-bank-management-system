@@ -9,4 +9,3 @@ $result = $conn->query($sqlvar);
 if ($result) {
     header('location:admin_customer_account_approval.php');
 }
-?>
