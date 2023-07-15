@@ -5,14 +5,12 @@ ini_set('display_errors', 1);
 include("connfile.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $acno = $_POST['acno'];
-    $acName = $_POST['acName'];
-    $address = $_POST['acAdd'];
-    $mobile = $_POST['MobileNo'];
-    $email = $_POST['email'];
-    $accountType = $_POST['actypename'];
+    $v1 = $_POST['text1'];
+    $v2 = $_POST['text2'];
+    $v3 = $_POST['text3'];
+    $v4 = $_POST['text4'];
 
-    $sqlvar = "UPDATE CustAcTab SET acName='$acName', acAdd='$address', MobileNo='$mobile', email='$email', actypename='$accountType' WHERE acno='$acno'";
+    $sqlvar = "UPDATE actypeTab SET text1='$v1', text2='$v2', text3='$v3', text4='$v4' WHERE text1='$v1'";
 
     $result = $conn->query($sqlvar);
 
@@ -22,23 +20,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Error updating record: " . $conn->error;
     }
 } else {
-    if (isset($_GET['acno'])) {
-        $acno = $_GET['acno'];
-        $sqlvar = "SELECT * FROM CustAcTab WHERE acno='$acno'";
+    if (isset($_GET['text1'])) {
+        $v1 = $_GET['text1'];
+        $sqlvar = "SELECT * FROM actypeTab WHERE text1='$v1'";
         $result = $conn->query($sqlvar);
 
         if ($result->num_rows == 1) {
             $row = $result->fetch_assoc();
-            $name = $row['acName'];
-            $address = $row['acAdd'];
-            $mobile = $row['MobileNo'];
-            $email = $row['email'];
-            $accountType = $row['actypename'];
+            $v1 = $row['text1'];
+            $address = $row['text2'];
+            $mobile = $row['text3'];
+            $email = $row['text4'];
         } else {
-            echo "Invalid Account Number.";
+            echo "Invalid Account Type.";
         }
     } else {
-        echo "Account Number is not set.";
+        echo "Account Type is not set.";
     }
 }
 ?>
@@ -76,34 +73,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <form name="form1" method="post" action="edit.php">
         <table width=80% border=1 cellspacing=5 cellpadding=5 align=center>
             <tr>
-                <td colspan=2>Customer Edit</td>
+                <td colspan=2>Account Type Edit</td>
             </tr>
             <tr>
-                <td>Account Number</td>
-                <td><input type="text" name="acno" value="<?php echo isset($acno) ? $acno : ''; ?>" readonly></td>
+                <td>Account Name (Type)</td>
+                <td><input type="text" name="text1" style="width: 300px;" value="<?php echo isset($acno) ? $acno : ''; ?>" readonly></td>
             </tr>
             <tr>
                 <td>Name</td>
-                <td><input type="text" name="acName" value="<?php echo isset($name) ? $name : ''; ?>"></td>
+                <td><input type="text" name="text2" style="width: 300px;" value="<?php echo isset($name) ? $name : ''; ?>"></td>
             </tr>
             <tr>
                 <td>Address</td>
-                <td><input type="text" name="acAdd" value="<?php echo isset($address) ? $address : ''; ?>"></td>
+                <td><input type="text" name="text3" style="width: 300px;" value="<?php echo isset($address) ? $address : ''; ?>"></td>
             </tr>
             <tr>
                 <td>Mobile No.</td>
-                <td><input type="text" name="MobileNo" value="<?php echo isset($mobile) ? $mobile : ''; ?>"></td>
+                <td><input type="text" name="text4" style="width: 300px;" value="<?php echo isset($mobile) ? $mobile : ''; ?>"></td>
             </tr>
             <tr>
-                <td>Email</td>
-                <td><input type="text" name="email" value="<?php echo isset($email) ? $email : ''; ?>"></td>
-            </tr>
-            <tr>
-                <td>Account Type</td>
-                <td><input type="text" name="actypename" value="<?php echo isset($accountType) ? $accountType : ''; ?>"></td>
-            </tr>
-            <tr>
-                <td><a href="admin_customer_list.php">Back</a></td>
+                <td><a href="adminacdetlist.php">Back</a></td>
                 <td><input type="submit" name="Update" value="Update"></td>
             </tr>
         </table>
