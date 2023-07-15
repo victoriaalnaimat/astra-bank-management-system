@@ -1,3 +1,12 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+session_start(); // Move session_start() to the top
+
+include("connfile.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -100,6 +109,42 @@
             border-right: 1px solid #ccc;
         }
 
+        .action-buttons {
+            display: inline-block;
+        }
+
+        .action-buttons a {
+            background-color: #ffffffc7;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-right: 10px;
+        }
+
+        .action-buttons a:last-child {
+            margin-right: 0;
+        }
+
+        .action-buttons a:hover {
+            background-color: darkcyan;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .action-buttons a:nth-child(2) {
+            background-color: pink !important;
+        }
+
+        .action-buttons a:nth-child(2):hover {
+            background-color: darkred !important;
+            color: #fff;
+        }
+
         /* Apply different background transparency to even rows */
         tr:nth-child(even) {
             background-color: rgba(255, 255, 255, 0.9);
@@ -150,35 +195,32 @@
     <div class="content">
         <table align="center" border="1" width="80%" cellpadding="5" cellspacing="5" style="margin-bottom: 0px;">
             <tr>
-                <th colspan="6" style="text-align: center;">All Customers Transactions List</th>
+                <th colspan="7" style="text-align: center;">Customer Transactions List</th>
             </tr>
-            <tr style="font-family: fantasy !important;">
+            <tr>
                 <th style="text-align: center; background: #fff; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Transaction No.</th>
                 <th style="text-align: center; background-color: rgba(0, 0, 0, 0.2); color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Date</th>
                 <th style="text-align: center; background: #fff; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Account No.</th>
-                <th style="text-align: center; background-color: rgba(0, 0, 0, 0.2); color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Depated Amount</th>
+                <th style="text-align: center; background: #fff; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Account Name</th>
+                <th style="text-align: center; background-color: rgba(0, 0, 0, 0.2); color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Deposited Amount</th>
                 <th style="text-align: center; background: #fff; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Credited Amount</th>
                 <th style="text-align: center; background-color: rgba(0, 0, 0, 0.2); color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Details</th>
             </tr>
             <?php
-            error_reporting(E_ALL);
-            ini_set('display_errors', 1);
+            $sqlvar = "SELECT TranTab.tranNo, TranTab.tranDate, TranTab.acNo, custactab.acName, TranTab.dbAmt, TranTab.ctAmt, TranTab.tranDetails 
+                       FROM TranTab 
+                       JOIN custactab ON TranTab.acNo = custactab.acNo
+                       ORDER BY TranTab.tranDate DESC";
 
-            include("connfile.php");
-
-            session_start();
-            $v1 = $_SESSION['acno'];
-            $sqlvar = "select * from TranTab order by tranNo desc";
-            //tranNo desc means arranging transaction numbers descending (from last to first)
             $result = $conn->query($sqlvar);
             while ($row = $result->fetch_row()) {
-                echo ("<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] . "</td><td>" . $row[5] . "</td></tr>");
+                echo ("<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] . "</td><td>" . $row[5] . "</td><td>" . $row[6] . "</td></tr>");
             }
             ?>
         </table>
-        <a class="back-link" href="admin_mainpage.php">Back</a>
+        <a href="admin_mainpage.php">Back</a>
     </div>
-    <footer style="height: fit-content;background: #000;opacity: 0.8;">
+    <footer style="height: fit-content;background: #000;opacity: 0.8;margin-top: 20px;">
         <p>&copy; 2023 Astra Bank. All rights reserved.</p>
     </footer>
 </body>
