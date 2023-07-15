@@ -5,12 +5,12 @@ ini_set('display_errors', 1);
 include("connfile.php");
 
 if (isset($_GET['account_actype'])) {
-    $account_actype = $_GET['account_actype'];
+    $account_acno = $_GET['account_actype'];
 
     // Use a prepared statement to prevent SQL injection
-    $sqlvar = "DELETE FROM actypeTab WHERE actypeName=?";
+    $sqlvar = "DELETE FROM custactab WHERE acno=?";
     $stmt = $conn->prepare($sqlvar);
-    $stmt->bind_param("s", $account_actype);
+    $stmt->bind_param("i", $account_acno);
 
     if ($stmt->execute()) {
         header("Location: admin_customer_account_approval.php");
