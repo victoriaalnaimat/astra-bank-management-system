@@ -65,11 +65,6 @@
             color: #fff;
         }
 
-        img {
-            display: block;
-            margin: 20px auto;
-        }
-
         .back-link {
             display: block;
             margin: 20px auto;
