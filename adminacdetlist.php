@@ -89,6 +89,42 @@
         td:not(:last-child) {
             border-right: 1px solid #ccc;
         }
+
+        .action-buttons {
+            display: inline-block;
+        }
+
+        .action-buttons a {
+            background-color: #ffffffc7;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-right: 10px;
+        }
+
+        .action-buttons a:last-child {
+            margin-right: 0;
+        }
+
+        .action-buttons a:hover {
+            background-color: darkcyan;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .action-buttons a:nth-child(2) {
+            background-color: pink !important;
+        }
+
+        .action-buttons a:nth-child(2):hover {
+            background-color: darkred !important;
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -130,12 +166,12 @@
             <tr>
                 <th colspan="6" style="text-align: center;">All Bank Account Types List</th>
             </tr>
-            <tr>
-                <td>Account Type</td>
-                <td>Details</td>
-                <td>Facilities</td>
-                <td>Minimum Balance</td>
-                <td>Actions</td>
+            <tr style="font-family: fantasy !important;">
+                <th style="text-align: center; background: #fff; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Account Type</th>
+                <th style="text-align: center; background-color: rgba(255, 255, 255, 0.5); color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Details</th>
+                <th style="text-align: center; background: #fff; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Facilities</th>
+                <th style="text-align: center; background-color: rgba(255, 255, 255, 0.5); color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Minimum Balance</th>
+                <th colspan="2" style="text-align: center; background: #fff; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Actions</th>
             </tr>
             <?php
             error_reporting(E_ALL);
@@ -147,7 +183,10 @@
             $result = $conn->query($sqlvar);
             while ($row = $result->fetch_row()) {
                 echo ("<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td>");
-                echo ("<td><a href='edit-actype.php?actypeName=" . $row[0] . "'>Edit</a> | <a href='delete-actype.php?account_actype=" . $row[0] . "'>Delete</a></td>");
+                echo ('<td><div class="action-buttons">');
+                echo ('<a href="edit-actype.php?actypeName=' . $row[0] . '">Edit</a>');
+                echo ('<a href="delete-actype.php?account_actype=' . $row[0] . '">Delete</a>');
+                echo ('</div></td>');
                 echo ("</tr>");
             }
             ?>

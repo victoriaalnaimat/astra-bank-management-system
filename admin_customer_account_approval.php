@@ -190,7 +190,7 @@
 
             include("connfile.php");
 
-            $sqlvar = "select * from CustAcTab where custapp='N' order by actypename";
+            $sqlvar = "select * from CustAcTab where custapp='N' order by acName";
             $result = $conn->query($sqlvar);
             while ($row = $result->fetch_row()) {
                 echo ("<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[4] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[6] . "</td>");

@@ -78,7 +78,7 @@
                 </tr>
                 <tr>
                     <td>Account Name (Type)</td>
-                    <td><input type="text" name="actypeName " style="width: 300px;"></td>
+                    <td><input type="text" name="actypeName" style="width: 300px;"></td>
                 </tr>
                 <tr>
                     <td>Account Details</td>
