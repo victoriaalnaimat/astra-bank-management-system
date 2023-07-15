@@ -22,12 +22,12 @@
             background-color: rgba(255, 255, 255, 0.7);
             /* Updated background color with transparency */
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            opacity: 0.7;
+
             /* Added opacity for transparency */
         }
-
         th {
-            background-color: #333;
+            background-color: black;
+            opacity: 0.79;
             color: #fff;
             font-weight: bold;
             font-size: 20px;
@@ -99,9 +99,9 @@
             </ul>
         </div>
     </header>
-    <table>
+    <table width="80%" border="1" cellspacing="5" cellpadding="5" align="center">
         <tr>
-            <th colspan="2">Admin Main Page</th>
+            <th colspan="4" style="text-align: center;">Admin Main Page</th>
         </tr>
         <tr>
             <td><a href="adminacdetlist.php">All Bank Account Types List</a></td>
@@ -125,7 +125,7 @@
             <td><a href="index.php">Logout</a></td>
         </tr>
     </table>
-    <footer style="height: fit-content;">
+    <footer style="height: fit-content;background: #000;opacity: 0.8;">
         <p>&copy; 2023 Astra Bank. All rights reserved.</p>
     </footer>
 </body>
