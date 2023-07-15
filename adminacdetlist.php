@@ -16,11 +16,12 @@
         }
 
         table {
-            width: 80%;
-            margin: 100px auto;
+            margin: 50px auto; /* Adjusted the margin */
             border-collapse: collapse;
-            background-color: rgba(255, 255, 255, 0.7); /* Updated background color with transparency */
+            background-color: rgba(255, 255, 255, 0.7);
+            /* Updated background color with transparency */
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            table-layout: fixed; /* Set table layout to fixed */
         }
 
         th {
@@ -57,13 +58,15 @@
         }
 
         .navbar-brand {
-            background-color: transparent !important; /* Remove background color */
+            background-color: transparent !important;
+            /* Remove background color */
         }
 
         /* Additional styles for the first page */
         .content {
             text-align: center;
             margin-top: 50px;
+            width: 100%; /* Set the width to 100% */
         }
 
         .back-link {
@@ -125,13 +128,14 @@
     <div class="content">
         <table style="margin-bottom: 0px;">
             <tr>
-                <th colspan="4" style="text-align: center;">All Bank Account Types List</th>
+                <th colspan="6" style="text-align: center;">All Bank Account Types List</th>
             </tr>
             <tr>
                 <td>Account Type</td>
                 <td>Details</td>
                 <td>Facilities</td>
                 <td>Minimum Balance</td>
+                <td>Actions</td>
             </tr>
             <?php
             error_reporting(E_ALL);
@@ -142,7 +146,9 @@
             $sqlvar = "select * from actypeTab order by actypename";
             $result = $conn->query($sqlvar);
             while ($row = $result->fetch_row()) {
-                echo ("<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td></tr>");
+                echo ("<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td>");
+                echo ("<td><a href='edit-actype.php?actypeName =" . $row[0] . "'>Edit</a> | <a href='delete-actype.php?account_actype=" . $row[0] . "'>Delete</a></td>");
+                echo ("</tr>");
             }
             ?>
         </table>
