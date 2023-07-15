@@ -5,6 +5,15 @@ ini_set('display_errors', 1);
 session_start(); // Move session_start() to the top
 
 include("connfile.php");
+include("get_balance.php");
+include("process_transaction.php"); // Include the updated file
+
+$sqlvar = "SELECT TranTab.tranNo, TranTab.tranDate, TranTab.acno, custactab.acName, TranTab.dbAmt, TranTab.ctAmt, TranTab.tranDetails 
+           FROM TranTab 
+           JOIN custactab ON TranTab.acno = custactab.acno
+           ORDER BY TranTab.tranDate DESC";
+
+$result = $conn->query($sqlvar);
 ?>
 
 <!DOCTYPE html>
@@ -193,28 +202,24 @@ include("connfile.php");
         </div>
     </header>
     <div class="content">
-        <table align="center" border="1" width="80%" cellpadding="5" cellspacing="5" style="margin-bottom: 0px;">
+        <table align="center" border="1" width="80%" cellpadding="5" cellspacing="5" style="margin-bottom: 20px;margin-top: 20px;">
             <tr>
-                <th colspan="7" style="text-align: center;">Customer Transactions List</th>
+                <th colspan="8" style="text-align: center;">Customer Transactions List</th>
             </tr>
             <tr>
                 <th style="text-align: center; background: #fff; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Transaction No.</th>
                 <th style="text-align: center; background-color: rgba(0, 0, 0, 0.2); color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Date</th>
                 <th style="text-align: center; background: #fff; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Account No.</th>
-                <th style="text-align: center; background: #fff; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Account Name</th>
-                <th style="text-align: center; background-color: rgba(0, 0, 0, 0.2); color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Deposited Amount</th>
-                <th style="text-align: center; background: #fff; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Credited Amount</th>
+                <th style="text-align: center; background-color: rgba(0, 0, 0, 0.2); color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Account Name</th>
+                <th style="text-align: center; background: #fff; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Deposited Amount</th>
+                <th style="text-align: center; background-color: rgba(0, 0, 0, 0.2); color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Credited Amount</th>
+                <th style="text-align: center; background: #fff; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Available Balance Amount</th> <!-- Add header cell for Balance Amount -->
                 <th style="text-align: center; background-color: rgba(0, 0, 0, 0.2); color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Details</th>
             </tr>
             <?php
-            $sqlvar = "SELECT TranTab.tranNo, TranTab.tranDate, TranTab.acNo, custactab.acName, TranTab.dbAmt, TranTab.ctAmt, TranTab.tranDetails 
-                       FROM TranTab 
-                       JOIN custactab ON TranTab.acNo = custactab.acNo
-                       ORDER BY TranTab.tranDate DESC";
-
-            $result = $conn->query($sqlvar);
             while ($row = $result->fetch_row()) {
-                echo ("<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] . "</td><td>" . $row[5] . "</td><td>" . $row[6] . "</td></tr>");
+                $balanceAmount = getBalance($row[2]); // Fetch the balance amount for each account
+                echo ("<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] . "</td><td>" . $row[5] . "</td><td>" . $balanceAmount . "</td><td>" . $row[6] . "</td></tr>");
             }
             ?>
         </table>
