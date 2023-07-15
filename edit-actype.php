@@ -76,6 +76,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             text-align: center;
             border-bottom: 1px solid #ccc;
         }
+
+        /* Apply different background transparency to even rows */
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Change the alpha value (0.9) to adjust the transparency */
+        }
+
+        /* Apply different background transparency to odd rows */
+        tr:nth-child(odd) {
+            background-color: rgba(255, 255, 255, 0.7);
+            /* Change the alpha value (0.7) to adjust the transparency */
+        }
     </style>
 </head>
 
@@ -120,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </tr>
                 <tr>
                     <td>Account Name (Type)</td>
-                    <td><input type="text" name="actypeName" style="width: 300px;" value="<?php echo isset($actypeName) ? $actypeName : ''; ?>" readonly></td>
+                    <td><input type="text" name="actypeName" style="width: 300px;background-color: rgba(0, 0, 0, 0.2); border: 1px solid;color: grey;cursor: no-drop;" value="<?php echo isset($actypeName) ? $actypeName : ''; ?>" readonly></td>
                 </tr>
                 <tr>
                     <td>Account Details</td>

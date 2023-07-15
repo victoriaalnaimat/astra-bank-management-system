@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="en">
 
 <head>
     <title>Astra Bank</title>
@@ -11,25 +11,34 @@
     <script src="https://kit.fontawesome.com/7433d3320f.js" crossorigin="anonymous"></script>
     <style>
         body {
-            background-color: lightblue;
+            background-color: #f2f2f2;
             font-family: Arial, sans-serif;
         }
 
         table {
+            margin: 50px auto;
+            /* Adjusted the margin */
             border-collapse: collapse;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.7);
+            /* Updated background color with transparency */
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            margin: 80px auto; /* Increase the margin to create more space */
-            width: 60%; /* Reduce the width of the table */
+            /* Set table layout to fixed */
         }
 
         th {
-            background-color: #333;
-            color: white;
+            background-color: #000;
+            color: #fff;
             font-weight: bold;
             font-size: 20px;
             padding: 15px;
             text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        th[scope="col"] {
+            font-family: fantasy !important;
+            font-size: 14px;
+            height: 30px;
         }
 
         td {
@@ -39,18 +48,40 @@
         }
 
         a {
+            background-color: #ffffffc7;
             text-decoration: none;
             color: #333;
             font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         a:hover {
-            color: darkcyan;
+            background-color: darkcyan;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .navbar-brand {
+            background-color: transparent !important;
+            /* Remove background color */
+        }
+
+        /* Additional styles for the first page */
+        .content {
+            text-align: center;
+            margin-top: 50px;
+            width: 100%;
+            /* Set the width to 100% */
         }
 
         .back-link {
             display: inline-block;
             margin-top: 20px;
+            margin-bottom: 12px;
             padding: 10px 20px;
             border: 1px solid #333;
             border-radius: 4px;
@@ -65,20 +96,56 @@
             color: #fff;
         }
 
-        .back-link {
-            display: block;
-            margin: 20px auto;
-            padding: 10px 20px;
-            border: 1px solid #333;
-            border-radius: 4px;
-            background-color: #fff;
-            color: #333;
+        td:not(:last-child) {
+            border-right: 1px solid #ccc;
+        }
+
+        .action-buttons {
+            display: inline-block;
+        }
+
+        .action-buttons a {
+            background-color: #ffffffc7;
             text-decoration: none;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            text-align: center;
-            /* Center the text */
-            width: 120px;
-            /* Adjust the width as needed */
+            color: #333;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-right: 10px;
+        }
+
+        .action-buttons a:last-child {
+            margin-right: 0;
+        }
+
+        .action-buttons a:hover {
+            background-color: darkcyan;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .action-buttons a:nth-child(2) {
+            background-color: pink !important;
+        }
+
+        .action-buttons a:nth-child(2):hover {
+            background-color: darkred !important;
+            color: #fff;
+        }
+
+        /* Apply different background transparency to even rows */
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Change the alpha value (0.9) to adjust the transparency */
+        }
+
+        /* Apply different background transparency to odd rows */
+        tr:nth-child(odd) {
+            background-color: rgba(255, 255, 255, 0.7);
+            /* Change the alpha value (0.7) to adjust the transparency */
         }
     </style>
 </head>
@@ -117,15 +184,18 @@
         </div>
     </header>
     <div class="content">
-        <table align="center" border="1" width="80%" cellpadding="5" cellspacing="5">
+    <table align="center" border="1" width="80%" cellpadding="5" cellspacing="5" style="margin-bottom: 0px;">
             <tr>
-                <th>Account No.</th>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Mobile No.</th>
-                <th>E-mail</th>
-                <th>Account Type</th>
-                <th>Actions</th>
+                <th colspan="8" style="text-align: center;">Astra Bank Customers List</th>
+            </tr>
+            <tr style="font-family: fantasy !important;">
+                <th style="text-align: center; background: #fff; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Account No.</th>
+                <th style="text-align: center; background-color: rgba(0, 0, 0, 0.2); color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Name</th>
+                <th style="text-align: center; background: #fff; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Mobile No.</th>
+                <th style="text-align: center; background-color: rgba(0, 0, 0, 0.2); color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">E-mail</th>
+                <th style="text-align: center; background: #fff; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Address</th>
+                <th style="text-align: center; background-color: rgba(0, 0, 0, 0.2); color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Account Type</th>
+                <th colspan="2" style="text-align: center; background: #fff; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Actions</th>
             </tr>
             <?php
             error_reporting(E_ALL);
@@ -142,15 +212,18 @@
                 echo ("<td>" . $row[2] . "</td>");
                 echo ("<td>" . $row[3] . "</td>");
                 echo ("<td>" . $row[4] . "</td>");
-                echo ("<td>" . $row[5] . "</td>");
-                echo ("<td><a href='edit.php?acno=" . $row[0] . "'>Edit</a> | <a href='delete.php?account=" . $row[0] . "'>Delete</a></td>");
+                echo ("<td>" . $row[6] . "</td>");
+                echo ('<td><div class="action-buttons">');
+                echo ('<a href="edit.php?acno=' . $row[0] . '">Edit</a>');
+                echo ('<a href="delete.php?account=' . $row[0] . '">Delete</a>');
+                echo ('</div></td>');
                 echo ("</tr>");
             }
             ?>
         </table>
         <a class="back-link" href="admin_mainpage.php">Back</a>
     </div>
-    <footer style="height: fit-content;">
+    <footer style="height: fit-content;background: #000;opacity: 0.8;">
         <p>&copy; 2023 Astra Bank. All rights reserved.</p>
     </footer>
 </body>

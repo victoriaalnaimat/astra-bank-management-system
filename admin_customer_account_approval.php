@@ -134,6 +134,18 @@
             background-color: darkred !important;
             color: #fff;
         }
+        
+        /* Apply different background transparency to even rows */
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Change the alpha value (0.9) to adjust the transparency */
+        }
+
+        /* Apply different background transparency to odd rows */
+        tr:nth-child(odd) {
+            background-color: rgba(255, 255, 255, 0.7);
+            /* Change the alpha value (0.7) to adjust the transparency */
+        }
     </style>
 </head>
 
@@ -177,11 +189,11 @@
             </tr>
             <tr style="font-family: fantasy !important;">
                 <th style="text-align: center; background: #fff; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Account No.</th>
-                <th style="text-align: center; background-color: rgba(255, 255, 255, 0.7);; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Name</th>
+                <th style="text-align: center; background-color: rgba(0, 0, 0, 0.2); color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Name</th>
                 <th style="text-align: center; background: #fff; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Address</th>
-                <th style="text-align: center; background-color: rgba(255, 255, 255, 0.7); color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Mobile No.</th>
+                <th style="text-align: center; background-color: rgba(0, 0, 0, 0.2); color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Mobile No.</th>
                 <th style="text-align: center; background: #fff; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">E-mail</th>
-                <th style="text-align: center; background-color: rgba(255, 255, 255, 0.7); color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Account Type</th>
+                <th style="text-align: center; background-color: rgba(0, 0, 0, 0.2); color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Account Type</th>
                 <th colspan="2" style="text-align: center; background: #fff; color: #333; font-weight: lighter; font-size: 16px; height: 30px; padding: 8px;">Actions</th>
             </tr>
             <?php
@@ -206,7 +218,7 @@
 
         <a class="back-link" href="admin_mainpage.php">Back</a>
     </div>
-    <footer style="height: fit-content;">
+    <footer style="height: fit-content;background: #000;opacity: 0.8;">
         <p>&copy; 2023 Astra Bank. All rights reserved.</p>
     </footer>
 </body>
