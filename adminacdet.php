@@ -57,12 +57,12 @@
         $resulttt = "";
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //echo ("working");
-            $v1 = $_POST['text1'];
-            $v2 = $_POST['text2'];
-            $v3 = $_POST['text3'];
-            $v4 = $_POST['text4'];
+            $actypeName = $_POST['actypeName'];
+            $acdetails = $_POST['acdetails'];
+            $facility = $_POST['facility'];
+            $minbal = $_POST['minbal'];
             //echo $v1." ".$v2;
-            $sqlvar = "insert into actypeTab values('$v1','$v2','$v3','$v4')";
+            $sqlvar = "insert into actypeTab values('$actypeName','$acdetails','$facility','$minbal')";
             $result = $conn->query($sqlvar);
             if ($result) {
                 $resulttt = "Record Inserted";
@@ -78,19 +78,19 @@
                 </tr>
                 <tr>
                     <td>Account Name (Type)</td>
-                    <td><input type="text" name="text1" style="width: 300px;"></td>
+                    <td><input type="text" name="actypeName " style="width: 300px;"></td>
                 </tr>
                 <tr>
                     <td>Account Details</td>
-                    <td><input type="text" name="text2" style="width: 300px;"></td>
+                    <td><input type="text" name="acdetails" style="width: 300px;"></td>
                 </tr>
                 <tr>
                     <td>Facilities</td>
-                    <td><input type="text" name="text3" style="width: 300px;"></td>
+                    <td><input type="text" name="facility" style="width: 300px;"></td>
                 </tr>
                 <tr>
                     <td>Minimum Balance</td>
-                    <td><input type="text" name="text4" style="width: 300px;"></td>
+                    <td><input type="text" name="minbal" style="width: 300px;"></td>
                 </tr>
                 <tr>
                     <td><a href="admin_mainpage.php">Back</a></td>

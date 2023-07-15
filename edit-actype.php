@@ -5,12 +5,12 @@ ini_set('display_errors', 1);
 include("connfile.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $v1 = $_POST['text1'];
-    $v2 = $_POST['text2'];
-    $v3 = $_POST['text3'];
-    $v4 = $_POST['text4'];
+    $actypeName = $_POST['actypeName'];
+    $acdetails = $_POST['acdetails'];
+    $facility = $_POST['facility'];
+    $minbal = $_POST['minbal'];
 
-    $sqlvar = "UPDATE actypeTab SET text1='$v1', text2='$v2', text3='$v3', text4='$v4' WHERE text1='$v1'";
+    $sqlvar = "UPDATE actypeTab SET acdetails='$acdetails', facility='$facility', minbal='$minbal' WHERE actypeName='$actypeName'";
 
     $result = $conn->query($sqlvar);
 
@@ -20,17 +20,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Error updating record: " . $conn->error;
     }
 } else {
-    if (isset($_GET['text1'])) {
-        $v1 = $_GET['text1'];
-        $sqlvar = "SELECT * FROM actypeTab WHERE text1='$v1'";
+    if (isset($_GET['actypeName'])) {
+        $acno = $_GET['actypeName'];
+        $sqlvar = "SELECT * FROM actypeTab WHERE actypeName='$actypeName'";
         $result = $conn->query($sqlvar);
 
         if ($result->num_rows == 1) {
             $row = $result->fetch_assoc();
-            $v1 = $row['text1'];
-            $address = $row['text2'];
-            $mobile = $row['text3'];
-            $email = $row['text4'];
+            $acdetails = $row['acdetails'];
+            $facility = $row['facility'];
+            $minbal = $row['minbal'];
         } else {
             echo "Invalid Account Type.";
         }
@@ -70,26 +69,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
     </header>
 
-    <form name="form1" method="post" action="edit.php">
+    <form name="form1" method="post" action="edit-actype.php">
         <table width=80% border=1 cellspacing=5 cellpadding=5 align=center>
             <tr>
-                <td colspan=2>Account Type Edit</td>
+                <td colspan=2>Customer Edit</td>
             </tr>
             <tr>
-                <td>Account Name (Type)</td>
-                <td><input type="text" name="text1" style="width: 300px;" value="<?php echo isset($acno) ? $acno : ''; ?>" readonly></td>
+            <td>Account Name (Type)</td>
+                    <td><input type="text" name="actypeName " style="width: 300px;" value="<?php echo isset($actypeName) ? $actypeName : ''; ?>" readonly></td>
             </tr>
-            <tr>
-                <td>Name</td>
-                <td><input type="text" name="text2" style="width: 300px;" value="<?php echo isset($name) ? $name : ''; ?>"></td>
+            <td>Account Details</td>
+                    <td><input type="text" name="acdetails" style="width: 300px;" value="<?php echo isset($acdetails) ? $acdetails : ''; ?>" readonly></td>
             </tr>
-            <tr>
-                <td>Address</td>
-                <td><input type="text" name="text3" style="width: 300px;" value="<?php echo isset($address) ? $address : ''; ?>"></td>
+            <td>Facilities</td>
+                    <td><input type="text" name="facility" style="width: 300px;" value="<?php echo isset($facility) ? $facility : ''; ?>" readonly></td>
             </tr>
-            <tr>
-                <td>Mobile No.</td>
-                <td><input type="text" name="text4" style="width: 300px;" value="<?php echo isset($mobile) ? $mobile : ''; ?>"></td>
+            <td>Minimum Balance</td>
+                    <td><input type="text" name="minbal" style="width: 300px;" value="<?php echo isset($minbal) ? $minbal : ''; ?>" readonly></td>
             </tr>
             <tr>
                 <td><a href="adminacdetlist.php">Back</a></td>
