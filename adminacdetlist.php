@@ -123,7 +123,7 @@
         </div>
     </header>
     <div class="content">
-        <table>
+        <table style="margin-bottom: 0px;">
             <tr>
                 <th colspan="4" style="text-align: center;">All Bank Account Types List</th>
             </tr>
