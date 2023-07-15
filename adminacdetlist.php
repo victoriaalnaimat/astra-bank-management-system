@@ -147,7 +147,7 @@
             $result = $conn->query($sqlvar);
             while ($row = $result->fetch_row()) {
                 echo ("<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td>");
-                echo ("<td><a href='edit-actype.php?actypeName =" . $row[0] . "'>Edit</a> | <a href='delete-actype.php?account_actype=" . $row[0] . "'>Delete</a></td>");
+                echo ("<td><a href='edit-actype.php?actypeName=" . $row[0] . "'>Edit</a> | <a href='delete-actype.php?account_actype=" . $row[0] . "'>Delete</a></td>");
                 echo ("</tr>");
             }
             ?>
