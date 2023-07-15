@@ -6,7 +6,6 @@ session_start(); // Move session_start() to the top
 
 include("connfile.php");
 include("get_balance.php");
-include("process_transaction.php"); // Include the updated file
 
 $sqlvar = "SELECT TranTab.tranNo, TranTab.tranDate, TranTab.acno, custactab.acName, TranTab.dbAmt, TranTab.ctAmt, TranTab.tranDetails 
            FROM TranTab 

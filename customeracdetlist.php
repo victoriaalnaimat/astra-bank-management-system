@@ -12,7 +12,7 @@
 
 </head>
 
-<body style="background-image:url(AstraBank_Victoria/assets/images/bg2.png);">
+<body style="background-image:url(AstraBank_Victoria/assets/images/pic1.png);">
   <header style="padding-top: 0;background: none;position: absolute;width: 50%;">
     <!-- Navbar Section  -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="height: 8vh;">
