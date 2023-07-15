@@ -6,13 +6,13 @@ include("connfile.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $acno = $_POST['acno'];
-    $name = $_POST['Name'];
-    $address = $_POST['Address'];
+    $acName = $_POST['acName'];
+    $address = $_POST['acAdd'];
     $mobile = $_POST['MobileNo'];
-    $email = $_POST['Email'];
-    $accountType = $_POST['AccountType'];
+    $email = $_POST['email'];
+    $accountType = $_POST['actypename'];
 
-    $sqlvar = "UPDATE CustAcTab SET Name='$name', Address='$address', MobileNo='$mobile', Email='$email', AccountType='$accountType' WHERE acno='$acno'";
+    $sqlvar = "UPDATE CustAcTab SET acName='$acName', acAdd='$address', MobileNo='$mobile', email='$email', actypename='$accountType' WHERE acno='$acno'";
 
     $result = $conn->query($sqlvar);
 
@@ -29,11 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($result->num_rows == 1) {
             $row = $result->fetch_assoc();
-            $name = $row['Name'];
-            $address = $row['Address'];
+            $name = $row['acName'];
+            $address = $row['acAdd'];
             $mobile = $row['MobileNo'];
-            $email = $row['Email'];
-            $accountType = $row['AccountType'];
+            $email = $row['email'];
+            $accountType = $row['actypename'];
         } else {
             echo "Invalid Account Number.";
         }
@@ -84,11 +84,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </tr>
             <tr>
                 <td>Name</td>
-                <td><input type="text" name="Name" value="<?php echo isset($name) ? $name : ''; ?>"></td>
+                <td><input type="text" name="acName" value="<?php echo isset($name) ? $name : ''; ?>"></td>
             </tr>
             <tr>
                 <td>Address</td>
-                <td><input type="text" name="Address" value="<?php echo isset($address) ? $address : ''; ?>"></td>
+                <td><input type="text" name="acAdd" value="<?php echo isset($address) ? $address : ''; ?>"></td>
             </tr>
             <tr>
                 <td>Mobile No.</td>
@@ -96,11 +96,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </tr>
             <tr>
                 <td>Email</td>
-                <td><input type="text" name="Email" value="<?php echo isset($email) ? $email : ''; ?>"></td>
+                <td><input type="text" name="email" value="<?php echo isset($email) ? $email : ''; ?>"></td>
             </tr>
             <tr>
                 <td>Account Type</td>
-                <td><input type="text" name="AccountType" value="<?php echo isset($accountType) ? $accountType : ''; ?>"></td>
+                <td><input type="text" name="actypename" value="<?php echo isset($accountType) ? $accountType : ''; ?>"></td>
             </tr>
             <tr>
                 <td><a href="admin_customer_list.php">Back</a></td>
