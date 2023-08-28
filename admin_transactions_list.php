@@ -222,11 +222,33 @@ $result = $conn->query($sqlvar);
             }
             ?>
         </table>
+        <a id="printButton" class="action-buttons" style="background-color: #ffffffc7;">Print Transaction Table</a>
         <a href="admin_mainpage.php">Back</a>
     </div>
     <footer style="height: fit-content;background: #000;opacity: 0.8;margin-top: 20px;">
         <p>&copy; 2023 Astra Bank. All rights reserved.</p>
     </footer>
+    <script>
+    // Add an event listener to the print button
+    document.getElementById("printButton").addEventListener("click", function () {
+        printTable();
+    });
+
+    // Function to print the table content
+    function printTable() {
+        var printContent = document.querySelector(".content").innerHTML;
+        var originalContent = document.body.innerHTML;
+
+        // Replace the body content with the table content
+        document.body.innerHTML = printContent;
+
+        // Print the content
+        window.print();
+
+        // Restore the original body content
+        document.body.innerHTML = originalContent;
+    }
+</script>
 </body>
 
 </html>

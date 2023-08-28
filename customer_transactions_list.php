@@ -213,20 +213,42 @@ $result = $conn->query($sqlvar);
             <?php
             while ($row = $result->fetch_row()) {
                 $balanceAmount = getBalance($row[2]); // Fetch the balance amount for each account
-            
+
                 // Use isset() to check if the value at index 6 exists before accessing it
                 $details = isset($row[6]) ? $row[6] : ''; // Assign an empty string if the value is not set
-            
+
                 echo ("<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] . "</td><td>" . $balanceAmount . "</td><td>" . $details . "</td></tr>");
             }
-            
+
             ?>
         </table>
+        <a id="printButton" class="action-buttons" style="background-color: #ffffffc7;">Print Table</a>
         <a href="customer_mainpage.php">Back</a>
     </div>
     <footer style="height: fit-content;background: #000;opacity: 0.8;margin-top: 20px;">
         <p>&copy; 2023 Astra Bank. All rights reserved.</p>
     </footer>
+    <script>
+    // Add an event listener to the print button
+    document.getElementById("printButton").addEventListener("click", function () {
+        printTable();
+    });
+
+    // Function to print the table content
+    function printTable() {
+        var printContent = document.querySelector(".content").innerHTML;
+        var originalContent = document.body.innerHTML;
+
+        // Replace the body content with the table content
+        document.body.innerHTML = printContent;
+
+        // Print the content
+        window.print();
+
+        // Restore the original body content
+        document.body.innerHTML = originalContent;
+    }
+</script>
 </body>
 
 </html>

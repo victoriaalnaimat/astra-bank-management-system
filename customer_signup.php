@@ -98,58 +98,65 @@ $resulttt = "";
         </tr>
         <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-          //echo ("working");
-          $v1 = $_POST['text1'];
-          $v2 = $_POST['text2'];
-          $v3 = $_POST['text3'];
-          $v4 = $_POST['text4'];
-          $v5 = $_POST['text5'];
-          $v6 = $_POST['text6'];
-
-
+          $v1 = $_POST['acno'];
+          $v2 = $_POST['acName'];
+          $v3 = $_POST['MobileNo'];
+          $v4 = $_POST['email'];
+          $v5 = $_POST['acAdd'];
+          $v6 = $_POST['pword'];
           $v7 = $_SESSION['actype'];
-          //echo $v1." ".$v2;
-          $sqlvar = "insert into CustAcTab values($v1,'$v2',$v3,'$v4','$v5','$v6','$v7','N')";
-          //echo $sqlvar;
+          $v8 = 'N'; // Default value for custapp
+          $v9 = 0.00; // Default value for balance
+      
+          $sqlvar = "INSERT INTO custactab values($v1,'$v2',$v3,'$v4','$v5','$v6','$v7','N', $v9)";
           $result = $conn->query($sqlvar);
+      
           if ($result) {
-            $resulttt = "Record Inserted";
+              $resulttt = "Record Inserted";
           } else {
-            $resulttt = "Record Not Inserted, seems that there's a problem !";
+              $resulttt = "Record Not Inserted, there seems to be a problem!";
           }
-        } else {
+      } else {
           $_SESSION['actype'] = $_GET['actype'];
-        }
+      }
+      
+
         ?>
 
         <tr>
           <td>Account Number (10 Digits)</td>
-          <td><input type="text" name="text1" maxlength="10"></td><!-- ...still 1 -->
+          <td><input type="number" name="acno" min="1000000000" max="9999999999" maxlength="10"></td>
         </tr>
         <tr>
           <td>Person Name</td>
-          <td><input type=text name=text2></td><!-- ...4 -->
+          <td><input type=text name=acName></td><!-- ...4 -->
         </tr>
         <tr>
           <td>Mobile No.</td>
-          <td><input type=text name=text3 maxlength="10"></td><!-- ...6 -->
+          <td><input type=text name=MobileNo maxlength="10"></td><!-- ...6 -->
         </tr>
         <tr>
           <td>E-mail</td>
-          <td><input type=text name=text4></td><!-- ...7 -->
+          <td><input type="text" name="email"></td><!-- ...7 -->
         </tr>
         <tr>
           <td>Address</td>
-          <td><textarea name=text5 rows=4></textarea></td><!-- ...5 -->
+          <td><textarea name=acAdd rows=4></textarea></td><!-- ...5 -->
         </tr>
         <tr>
           <td>Password</td>
-          <td><input type=password name=text6></td><!-- ...2 -->
+          <td><input type="password" name="pword" id="password"></td>
         </tr>
         <tr>
           <td>Retype Password</td>
-          <td><input type=password name=text7></td><!-- ...3 -->
+          <td><input type="password" name="text7" id="retypePassword"></td>
         </tr>
+        <tr>
+          <td colspan="2">
+            <div id="passwordWarning" style="color: red;"></div>
+          </td>
+        </tr>
+
         <tr>
           <td><a href="customeracdetlist.php">Back</a></td>
           <td><input type="submit" name="Login" class="back-link" style="background-color: #343131c7;
@@ -161,12 +168,34 @@ $resulttt = "";
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"></td>
         </tr>
+        <tr>
+          <td colspan="2"><?php echo $resulttt; ?></td>
+        </tr>
       </table>
     </form>
   </div>
   <footer>
     <p>&copy; 2023 Astra Bank. All rights reserved.</p>
   </footer>
+  <script>
+    const passwordInput = document.getElementById("password");
+    const retypePasswordInput = document.getElementById("retypePassword");
+    const passwordWarning = document.getElementById("passwordWarning");
+
+    retypePasswordInput.addEventListener("keyup", validatePasswords);
+
+    function validatePasswords() {
+      const password = passwordInput.value;
+      const retypePassword = retypePasswordInput.value;
+
+      if (password !== retypePassword) {
+        passwordWarning.textContent = "Passwords do not match!";
+      } else {
+        passwordWarning.textContent = "";
+      }
+    }
+  </script>
+
 </body>
 
 </html>
